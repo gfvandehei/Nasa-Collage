@@ -1,0 +1,4 @@
+*Venv*
+*.vscode*
+*.egg*
+*__pycache__*
