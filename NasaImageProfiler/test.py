@@ -11,6 +11,8 @@ def create_imagecollect(url):
 nm = NasaMediaSearch(['saturn'])
 print(len(nm.found_collections))
 
+# write this
+
 futures = []
 with concurrent.futures.ThreadPoolExecutor() as executor:
     for collection_url in nm.found_collections:

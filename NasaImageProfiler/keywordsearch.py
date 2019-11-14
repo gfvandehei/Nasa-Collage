@@ -1,13 +1,15 @@
 import requests
 import concurrent.futures
 import math
-
+import queue
+from NasaImageProfiler.imagecollectionsearch import ImageCollection
 
 class NasaMediaSearch(object):
 
     def __init__(self, keywords: []):
         self.base_url = "https://images-api.nasa.gov/search"
         self.found_collections = self.search(keywords)
+        self.executor = concurrent.futures.ThreadPoolExecutor(max_workers=12)
 
     def search(self, search_keyword=[]):
         all_keyword_collections = []
@@ -57,6 +59,7 @@ class NasaMediaSearch(object):
         returned_collections = []
         for i in item_list:
             returned_collections.append(i['href'])
+            #self.collections_queue.put(i)
         return returned_collections
 
     """ def search_keyword(self, search_keyword: str, page=0) -> dict:
