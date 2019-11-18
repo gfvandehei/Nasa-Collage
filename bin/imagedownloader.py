@@ -1,8 +1,6 @@
-from NasaCollageGUI.model.downloadimageurltask import DownloadImageUrlTask
-from NasaCollageGUI.model.previewimageurltask import PreviewImageUrlTask
-from NasaCollageGUI.model.pythonstatusjson import PythonStatusJson
-from ImageUtils.squareconverter import *
-from ImageUtils.imagestitch import *
+from NasaCollageGUI.network.downloadimageurltask import DownloadImageUrlTask
+from NasaCollageGUI.network.previewimageurltask import PreviewImageUrlTask
+from NasaCollageGUI.network.pythonstatusjson import PythonStatusJson
 
 import time
 import os

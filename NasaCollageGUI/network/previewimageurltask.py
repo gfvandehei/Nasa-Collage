@@ -1,5 +1,5 @@
-from NasaCollageGUI.model.urltask import BaseUrlTask
-from NasaCollageGUI.model.nasasearchresponse import NASASearchResponse
+from NasaCollageGUI.network.urltask import BaseUrlTask
+from NasaCollageGUI.network.nasasearchresponse import NASASearchResponse
 from concurrent.futures import ThreadPoolExecutor
 import concurrent.futures
 import requests

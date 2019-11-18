@@ -1,6 +1,6 @@
-from NasaCollageGUI.model.urltask import BaseUrlTask
-from NasaCollageGUI.model.downloadimageurltask import DownloadImageUrlTask
-from NasaCollageGUI.model.previewimageurltask import PreviewImageUrlTask
+from NasaCollageGUI.network.urltask import BaseUrlTask
+from NasaCollageGUI.network.downloadimageurltask import DownloadImageUrlTask
+from NasaCollageGUI.network.previewimageurltask import PreviewImageUrlTask
 import json
 import os
 from threading import Thread
