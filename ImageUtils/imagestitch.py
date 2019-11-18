@@ -43,10 +43,12 @@ def run_image_stitch(color_map, to_stitch_pic, to_stitch_target_res, insert_pic_
     img_val_map = color_map
     processed_pic = to_stitch_pic
     ref_image = cv2.imread(processed_pic, 0)
-    (w, h,) = ref_image.shape
+    (h, w,) = ref_image.shape
+    print(h, w)
     ref_image = cv2.resize(ref_image, (math.floor(w/to_stitch_target_res), math.floor(h/to_stitch_target_res)))
-    (w, h,) = ref_image.shape
-    new_img_shape = (w * insert_pic_target_res, h * insert_pic_target_res)
+    (h, w,) = ref_image.shape
+    print(h, w)
+    new_img_shape = (h * insert_pic_target_res, w * insert_pic_target_res)
     print(new_img_shape)
 
     row = []
@@ -63,23 +65,6 @@ def run_image_stitch(color_map, to_stitch_pic, to_stitch_target_res, insert_pic_
             for i, rowi in enumerate(ref_image):
                 for u, pixel in enumerate(rowi):
                     ram_usage = process.memory_info().rss / 1e9
-                    """images_for_pixel = img_val_map[str(pixel)]
-                    cur_image_pixel = None
-                    ram_usage = process.memory_info().rss/1e9
-                    if ram_usage >= 5:
-                        raise KeyboardInterrupt
-
-                    if len(images_for_pixel) == 0:
-                        cur_image_pixel = Image.new("RGB", (50, 50), (pixel, pixel, pixel)).convert("L")
-                        #print("Zero")
-                    else:
-                        # pic a random pic from images
-                        image_index = random.randint(0, len(images_for_pixel)-1)
-                        #print("Getting image {}".format(images_for_pixel[image_index]))
-                        image_array = Image.open(images_for_pixel[image_index]).convert("L")
-                        image_array = image_array.resize((50, 50))
-                        cur_image_pixel = image_array
-                    final_image.paste(cur_image_pixel, (u*50, i*50))"""
                     if ram_usage > 3:
                         print("Awaiting ram clearing")
                         for i in futures:
@@ -100,9 +85,9 @@ def run_image_stitch(color_map, to_stitch_pic, to_stitch_target_res, insert_pic_
         print("Ex")
         # make sure all futures finish
         for i, future in enumerate(futures):
-            print("Awaiting future {}/{}".format(i, len(futures)))
+            #print("Awaiting future {}/{}".format(i, len(futures)))
             future.result()
-            print("Got future {}/{}".format(i, len(futures)))
+            #print("Got future {}/{}".format(i, len(futures)))
 
     print(pic)
     final_image.save(collage_name)

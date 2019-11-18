@@ -101,12 +101,3 @@ class PreviewImageUrlTask(BaseUrlTask):
             tb = sys.exc_info()[2]
             print(err.with_traceback(tb))
             return False
-
-
-"""task = PreviewImageUrlTask("Mars rover")
-task.start()
-while task.is_alive():
-    time.sleep(1)
-print("TODOS:",task.todo_urls)
-print("Completed:", task.done_urls)
-print("RESULTS:", len(task.results['thumbnails']))"""

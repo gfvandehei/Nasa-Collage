@@ -14,7 +14,7 @@ print(TODIR)
 
 pstat = PythonStatusJson()
 print("STARTING DOWNLOAD OF INDEXES")
-new_active_task = PreviewImageUrlTask("mars rover")
+new_active_task = PreviewImageUrlTask(KEYWORD)
 pstat.add_url_task(new_active_task)
 while new_active_task.is_alive():
     progress = new_active_task.progress
