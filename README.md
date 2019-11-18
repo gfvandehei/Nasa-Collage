@@ -43,7 +43,8 @@ directory should be something along the lines of /home/downloads/large_image_dir
 
 ### To create a collage from images in a directory run:
 
-*python3 bin/createcollage.py*
+*python3 bin/createcollage.py {image to make collage from} {directory where sub images are} {scale for main image recommended = 10}
+ {size to resize each sub image recommended=50} {final collage filename} {ram limit recommended=5.0}*
 
 On running this a series of prompts will ask for the directory where images are, the location of the main image,
 the resolution scaling of the main image, the resolution scaling of each inner picture, and the output collages
